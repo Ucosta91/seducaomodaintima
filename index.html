@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEDUÇÃO - MODA ÍNTIMA E SEX SHOP</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="age-gate">
+        <div class="age-gate-content">
+            <h2>Confirmação de Idade</h2>
+            <p>Você tem mais de 18 anos para acessar esta loja?</p>
+            <button onclick="confirmAge(true)">Sim, tenho 18+</button>
+            <button onclick="confirmAge(false)">Não</button>
+        </div>
+    </div>
+
+    <header class=" header-group">
+        <div class="logo"><a href="index.html"><img src="img/logo.png" style="border-radius: 5px" alt="sponsor" height="100%" width="150"/></a></div>
+    <!-- CAMPO DE BUSCA -->
+            <form class="search-form">
+                <input type="search" placeholder="Buscar produtos...">
+                <button type="submit" aria-label="Buscar">🔍</button>
+            </form>    
+    </div>
+        <nav>
+            <a href="produtos.html">Produtos</a>
+            <a href="index.html#lancamentos">Lançamentos</a>
+            <a href="index.html" target="_self">Voltar à Loja</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Porque o prazer não tem limites.</h1>
+            <p>Produtos selecionados para o seu bem-estar e intimidade.</p>
+            <a href="produtos.html" class="btn-primary">Explorar Coleção</a>
+        </section>
+
+        <section id="produtos" class="product-grid">
+            <h2>Produtos em Destaque</h2>
+            
+            <div class="product-card" data-nome="Hot Ball Xana Loka" data-preco="99.90" data-codigo="OM-001">
+                <img src="img\Hot Ball Xana Loka.png" alt="Hot Ball Xana Loka">
+                <h3>Hot Ball Xana Loka</h3>
+                <p class="price">R$ 99,90</p>
+                <button class="btn-whatsapp" onclick="enviarParaWhatsapp(this)">Pedir via WhatsApp</button>
+            </div>
+            
+            <div class="product-card" data-nome="Picante Spray Lubrificante Hot 15Ml Garji" data-preco="149.90" data-codigo="VD-002">
+                <img src="img\Picante Spray Lubrificante Hot 15Ml Garji.png" alt="Picante Spray Lubrificante Hot 15Ml Garji">
+                <h3>Picante Spray Lubrificante Hot 15Ml Garji</h3>
+                <p class="price">R$ 149,90</p>
+                <button class="btn-whatsapp" onclick="enviarParaWhatsapp(this)">Pedir via WhatsApp</button>
+            </div>
+            
+            <div class="product-card" data-nome="Tarja Preta Gel Excitante" data-preco="79.90" data-codigo="LA-003">
+                <img src="img\Tarja Preta Gel Excitante.png" alt="Tarja Preta Gel Excitante">
+                <h3>Tarja Preta Gel Excitante</h3>
+                <p class="price">R$ 79,90</p>
+                <button class="btn-whatsapp" onclick="enviarParaWhatsapp(this)">Pedir via WhatsApp</button>
+            </div>
+
+        </section>
+
+
+<script>
+        // Função do Age Gate (mantida do código anterior)
+        function confirmAge(isAdult) {
+            const ageGate = document.getElementById('age-gate');
+            if (isAdult) {
+                ageGate.style.display = 'none';
+            } else {
+                window.location.href = 'https://www.google.com';
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('age-gate').style.display = 'flex';
+        });
+
+
+        // FUNÇÃO DE INTEGRAÇÃO COM WHATSAPP
+        function enviarParaWhatsapp(buttonElement) {
+            // 1. Número de telefone do seu negócio (apenas números, com código do país e DDD)
+            const SEU_NUMERO_WHATSAPP = '5575999420812'; // Exemplo: 55 (Brasil) + 11 (DDD) + 999998888
+
+            // 2. Coleta de dados do produto a partir do elemento pai (product-card)
+            const card = buttonElement.closest('.product-card');
+            const nome = card.getAttribute('data-nome');
+            const preco = card.getAttribute('data-preco');
+            const codigo = card.getAttribute('data-codigo');
+
+            // 3. Criação da mensagem formatada
+            let mensagem = `Olá, gostaria de fazer o pedido do seguinte item:\n\n`;
+            mensagem += `*Produto:* ${nome}\n`;
+            mensagem += `*Código:* ${codigo}\n`;
+            mensagem += `*Preço:* R$ ${preco.replace('.', ',')}\n\n`;
+            mensagem += `Por favor, me informe sobre as formas de pagamento e os detalhes de envio discreto. Obrigado(a)!`;
+
+            // 4. Codificação da mensagem para URL
+            const mensagemCodificada = encodeURIComponent(mensagem);
+
+            // 5. Criação do link do WhatsApp
+            const urlWhatsapp = `https://wa.me/${SEU_NUMERO_WHATSAPP}?text=${mensagemCodificada}`;
+
+            // 6. Abre o link (em nova aba, para não fechar a loja)
+            window.open(urlWhatsapp, '_blank');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,541 @@
+/* ==================================== */
+/* 1. VARIÁVEIS DE COR E TIPOGRAFIA     */
+/* ==================================== */
+:root {
+    /* Cores Principais */
+    --primary-color: #333;      /* Cinza Escuro (Elegância e discrição) */
+    --secondary-color: #70478C;  /* Roxo-berinjela (Toque de cor sofisticado) */
+    --accent-color: #DDA0DD;    /* Lilás suave (Para detalhes) */
+    --whatsapp-color: #25D366;  /* Verde WhatsApp */
+    --instagram-color: #E4405F; /* Rosa/Vermelho do Instagram para o botão */
+    
+    /* Cores de Fundo e Texto */
+    --text-color: #444;
+    --background-color: #f7f7f7;
+    --white: #ffffff;
+    
+    /* Tipografia */
+    --font-family: 'Montserrat', sans-serif;
+}
+
+/* ==================================== */
+/* 2. RESET BÁSICO E ESTILOS GERAIS     */
+/* ==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Para rolagem suave entre seções */
+}
+
+/* Links */
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #55356b; /* Um tom mais escuro do roxo */
+}
+
+/* ==================================== */
+/* 3. BOTÕES (Gerais e Específicos)     */
+/* ==================================== */
+
+.btn-primary, .btn-secondary, .btn-whatsapp {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Botão Principal (Hero/Call to Action) */
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border-color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background-color: #55356b;
+    border-color: #55356b;
+}
+
+/* Botão Secundário (Comprar - Exemplo) */
+.btn-secondary {
+    background-color: var(--white);
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+/* Botão WhatsApp (Integração) */
+.btn-whatsapp {
+    background-color: var(--whatsapp-color);
+    color: var(--white);
+    border-color: var(--whatsapp-color);
+    width: 100%; /* Ocupa a largura total do card */
+    margin-top: 10px;
+    padding: 10px 20px;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1FAF59; /* Verde mais escuro */
+    border-color: #1FAF59;
+}
+
+
+/* ==================================== */
+/* 4. LAYOUT E SEÇÕES                   */
+/* ==================================== */
+
+/* Cabeçalho */
+header {
+    background-color: var(--white);
+    color: var(--primary-color);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos para o grupo Logo + Busca */
+.header-group {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaço entre o logo e o campo de busca */
+}
+
+/* Estilos para o formulário de busca */
+.search-form {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+   
+}
+
+.search-form input[type="search"] {
+    padding: 8px 15px;
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    background: transparent;
+    font-size: 0.9em;
+    min-width: 180px; /* Largura mínima para desktop */
+}
+
+.search-form button {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.search-form button:hover {
+    background-color: #55356b;
+}
+
+.logo {
+    font-size: 1.6em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    width: 1.6em;
+  
+}
+
+nav a {
+    color: var(--primary-color);
+    margin-left: 25px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+.icon-cart {
+    color: var(--secondary-color) !important;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 100px 5%; /* Mais espaço para destaque */
+    background-image: url('placeholder-bg.jpg'); /* Opcional: imagem de fundo discreta */
+    background-size: cover;
+    background-position: center;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+/* Grid de Produtos */
+.product-grid {
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.product-grid h2 {
+    font-size: 2.2em;
+    color: var(--primary-color);
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==================================== */
+/* 5. CARDS DE PRODUTO                  */
+/* ==================================== */
+
+.product-card {
+    background-color: var(--white);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px;
+    display: inline-flex; /* Usamos flexbox para alinhar conteúdo verticalmente */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px; /* Largura padrão */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #eee;
+}
+
+.product-card h3 {
+    font-size: 1.4em;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.product-card .price {
+    color: var(--secondary-color);
+    font-weight: 700;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+/* ==================================== */
+/* 6. RODAPÉ (FOOTER)                   */
+/* ==================================== */
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 40px 5% 15px;
+    font-size: 0.9em;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #555;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.footer-section {
+    width: 30%;
+}
+
+.footer-section h4 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section a {
+    color: var(--white);
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+    opacity: 0.8;
+}
+
+.footer-section a:hover {
+    color: var(--accent-color);
+    opacity: 1;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.8em;
+    opacity: 0.6;
+}
+
+/* ==================================== */
+/* 7. AGE GATE (Confirmação de Idade)   */
+/* ==================================== */
+
+#age-gate {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: var(--white);
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    text-align: center;
+}
+
+.age-gate-content {
+    background: var(--primary-color);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.age-gate-content h2 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.age-gate-content button {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 12px 25px;
+    margin: 15px 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.age-gate-content button:hover {
+    background-color: #55356b;
+}
+
+/* ==================================== */
+/* 9. SEÇÃO DE CONTATO SIMPLIFICADA     */
+/* ==================================== */
+
+.contact-section {
+    padding: 40px 5%;
+    background-color: var(--white);
+    
+    /* ESTILOS DE BORDA */
+    border: 4px solid var(--secondary-color); 
+    border-radius: 10px;
+    margin: 10px 5%; 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); 
+}
+
+.contact-section h2 {
+    font-size: 2.2em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.contact-subtitle {
+    font-size: 1.1em;
+    color: var(--text-color);
+    /* Margem inferior do subtítulo ajustada */
+    margin-bottom: 30px; 
+}
+
+.contact-container-simple {
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+    gap: 30px;
+    
+}
+
+/* ESTILO NOVO: Horário de atendimento em destaque */
+.time-highlight {
+    /* Centraliza e aumenta o espaçamento */
+    text-align: center;
+    margin-top: 40px; 
+    margin-bottom: 10px;
+    
+    /* Aumenta a fonte e destaca a cor */
+    font-size: 1.25em; /* Aumenta o tamanho da fonte */
+    font-weight: 600;
+    color: var(--secondary-color); /* Roxo para destaque */
+}
+
+/* Estilo para os Cards de Contato */
+.contact-card {
+    flex: 1;
+    background-color: var(--background-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.contact-card h3 {
+    color: var(--primary-color);
+    margin: 10px 0 10px;
+    font-size: 1.5em;
+}
+
+.contact-card p {
+    font-size: 0.95em;
+    margin-bottom: 20px;
+}
+
+.detail-icon {
+    font-size: 2.5em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Estilos Específicos dos Cards */
+.whatsapp-card .detail-icon {
+    color: var(--whatsapp-color);
+}
+
+.instagram-card .detail-icon {
+    color: var(--instagram-color);
+}
+
+/* Novo Botão Instagram */
+.btn-instagram {
+    /* Herda estilos base de botões */
+    display: block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+    background: var(--instagram-color);
+    color: var(--white);
+    border: 2px solid var(--instagram-color);
+}
+
+.btn-instagram:hover {
+    background: #c7314e; /* Escurece no hover */
+    border-color: #c7314e;
+}
+
+.card-note {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 15px !important;
+}
+
+
+/* ==================================== */
+/* 8. RESPONSIVIDADE (Apenas ajustes de layout, não de borda) */
+/* ==================================== */
+
+@media (max-width: 900px) {
+    .product-card {
+        width: 45%; /* Em telas menores, mostra dois por linha */
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        /* Mantém flex-direction: column para empilhar itens no mobile */
+        flex-direction: column; 
+        text-align: center;
+    }
+    
+    .header-group {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap; /* Permite quebrar linha se o espaço for muito pequeno */
+        margin-bottom: 10px;
+    }
+    
+    .search-form {
+        /* Ocupa mais espaço em telas pequenas */
+        flex-grow: 1;
+        max-width: 90%;
+        margin-top: 10px; 
+    }
+
+    .search-form input[type="search"] {
+        min-width: unset; /* Remove min-width para flexibilidade total em mobile */
+    }
+    
+    nav {
+        margin-top: 15px;
+    }
+
+    nav a {
+        margin: 0 8px;
+        display: inline-block;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        width: 80%;
+        margin-bottom: 30px;
+        text
+    }
+    
+    .contact-container-simple {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .time-highlight {
+        margin-top: 20px; /* Reduz o espaçamento em telas menores */
+    }
+}

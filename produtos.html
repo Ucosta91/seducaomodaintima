@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos os Produtos - SEDUÇÃO</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+     <header class=" header-group">
+        <div class="logo"><a href="index.html"><img src="img/logo.png" style="border-radius: 5px" alt="sponsor" height="100%" width="150"/></a></div>
+    <!-- CAMPO DE BUSCA -->
+            <form class="search-form">
+                <input type="search" placeholder="Buscar produtos...">
+                <button type="submit" aria-label="Buscar">🔍</button>
+            </form>    
+    </div>
+        <nav>
+            <a href="index.html#produtos">Produtos</a>
+            <a href="index.html#lancamentos">Lançamentos</a>
+            <a href="index.html" target="_self">Voltar à Loja</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="todos-produtos" class="product-grid" style="padding-top: 80px;">
+            <h2>Catálogo Completo</h2>
+            <p class="contact-subtitle" style="margin-bottom: 50px;">Veja todos os nossos produtos. Clique no botão WhatsApp para iniciar seu pedido.</p>
+            
+            <div class="product-card" data-nome="Óleo de Massagem Exótico" data-preco="99.90" data-codigo="OM-001">
+                <img src="placeholder-product-1.jpg" alt="Óleo de Massagem Exótico">
+                <h3>Óleo de Massagem Exótico</h3>
+                <p class="price">R$ 99,90</p>
+                <button class="btn-whatsapp" onclick="enviarParaWhatsapp(this)">Pedir via WhatsApp</button>
+            </div>
+            
+            <div class="product-card" data-nome="Vibrador Discreto Premium" data-preco="149.90" data-codigo="VD-002">
+                <img src="placeholder-product-2.jpg" alt="Vibrador Discreto Premium">
+                <h3>Vibrador Discreto Premium</h3>
+                <p class="price">R$ 149,90</p>
+                <button class="btn-whatsapp" onclick="enviarParaWhatsapp(this)">Pedir via WhatsApp</button>
+            </div>
+            
+            <div class="product-card" data-nome="Lubrificante à Base de Água" data-preco="79.90" data-codigo="LA-003">
+                <img src="placeholder-product-3.jpg" alt="Lubrificante à Base de Água">
+                <h3>Lubrificante à Base de Água</h3>
+                <p class="price">R$ 79,90</p>
+                <button class="btn-whatsapp" onclick="enviarParaWhatsapp(this)">Pedir via WhatsApp</button>
+            </div>
+            
+            <div class="product-card" data-nome="Vela Aromática para Casal" data-preco="65.50" data-codigo="VA-004">
+                <img src="placeholder-product-4.jpg" alt="Vela Aromática para Casal">
+                <h3>Vela Aromática</h3>
+                <p class="price">R$ 65,50</p>
+                <button class="btn-whatsapp" onclick="enviarParaWhatsapp(this)">Pedir via WhatsApp</button>
+            </div>
+
+            <div class="product-card" data-nome="Kit de Jogos Íntimos" data-preco="120.00" data-codigo="KJ-005">
+                <img src="placeholder-product-5.jpg" alt="Kit de Jogos Íntimos">
+                <h3>Kit Jogos Íntimos</h3>
+                <p class="price">R$ 120,00</p>
+                <button class="btn-whatsapp" onclick="enviarParaWhatsapp(this)">Pedir via WhatsApp</button>
+            </div>
+
+            <div class="product-card" data-nome="Gel Excitante Feminino" data-preco="45.00" data-codigo="GE-006">
+                <img src="placeholder-product-6.jpg" alt="Gel Excitante Feminino">
+                <h3>Gel Excitante</h3>
+                <p class="price">R$ 45,00</p>
+                <button class="btn-whatsapp" onclick="enviarParaWhatsapp(this)">Pedir via WhatsApp</button>
+            </div>
+            
+            </section>
+        
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Sobre</h4>
+                <p>Nossa missão é promover o bem-estar e a intimidade com discrição e qualidade.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Atendimento</h4>
+                <ul>
+                    <li><a href="#">Trocas e Devoluções</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="contato.html" target="_blank">Fale Conosco</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Discretividade Garantida</h4>
+                <p>O nome da empresa na fatura é: [NOME GENÉRICO DA EMPRESA LTDA]</p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2025 Sua Marca. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // FUNÇÃO DE INTEGRAÇÃO COM WHATSAPP
+        function enviarParaWhatsapp(buttonElement) {
+            // 1. Número de telefone do seu negócio (apenas números, com código do país e DDD)
+            const SEU_NUMERO_WHATSAPP = '5575999420812';
+
+            // 2. Coleta de dados do produto a partir do elemento pai (product-card)
+            const card = buttonElement.closest('.product-card');
+            const nome = card.getAttribute('data-nome');
+            const preco = card.getAttribute('data-preco');
+            const codigo = card.getAttribute('data-codigo');
+
+            // 3. Criação da mensagem formatada
+            let mensagem = `Olá, gostaria de fazer o pedido do seguinte item:\n\n`;
+            mensagem += `*Produto:* ${nome}\n`;
+            mensagem += `*Código:* ${codigo}\n`;
+            mensagem += `*Preço:* R$ ${preco.replace('.', ',')}\n\n`;
+            mensagem += `Por favor, me informe sobre as formas de pagamento e os detalhes de envio discreto. Obrigado(a)!`;
+
+            // 4. Codificação da mensagem para URL
+            const mensagemCodificada = encodeURIComponent(mensagem);
+
+            // 5. Criação do link do WhatsApp
+            const urlWhatsapp = `https://wa.me/${SEU_NUMERO_WHATSAPP}?text=${mensagemCodificada}`;
+
+            // 6. Abre o link (em nova aba, para não fechar a loja)
+            window.open(urlWhatsapp, '_blank');
+        }
+    </script>
+</body>
+</html>
