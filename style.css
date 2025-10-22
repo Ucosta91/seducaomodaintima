@@ -174,7 +174,19 @@ nav a {
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.9em;
+    
+    /* Propriedades para o Sublinhado */
+    display: inline-block; /* Importante para que a borda funcione corretamente */
+    border-bottom: 2px solid transparent; /* Linha inicial invisível */
+    padding-bottom: 2px; /* Espaçamento entre o texto e a linha */
+    transition: border-color 0.3s ease; /* Transição suave */
 }
+
+nav a:hover {
+    color: var(--secondary-color); /* Muda a cor do texto para o roxo no hover */
+    border-color: var(--secondary-color); /* A linha aparece na cor roxa no hover */
+}
+
 
 .icon-cart {
     color: var(--secondary-color) !important;
@@ -539,3 +551,4 @@ footer {
         margin-top: 20px; /* Reduz o espaçamento em telas menores */
     }
 }
+
